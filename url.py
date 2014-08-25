@@ -1,4 +1,4 @@
-from flask import Flask, redirect
+from flask import Flask, redirect, abort
 import redis, zlib
 
 app = Flask(__name__)
@@ -6,8 +6,10 @@ redis = redis.StrictRedis()
 
 @app.route("/<int:key>/")
 def redirect(key):
-    target_url = redis.get(key)
-    return redirect(target_url)
+    if not redis.get(key)
+        abort(404)
+    else:
+        return redirect(target_url)
 
 @app.route("/shorten/", methods=['POST'])
 def shorten():
