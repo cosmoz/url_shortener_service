@@ -6,7 +6,7 @@ redis = redis.StrictRedis()
 
 @app.route("/<int:key>/")
 def redirect(key):
-    if not redis.get(key)
+    if not redis.get(key):
         abort(404)
     else:
         return redirect(target_url)
