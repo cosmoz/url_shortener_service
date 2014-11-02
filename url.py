@@ -1,4 +1,4 @@
-from flask import Flask, redirect, abort
+from flask import Flask, request, redirect, abort
 from lepl.apps.rfc3696 import HttpUrl
 import redis, zlib
 
@@ -6,7 +6,7 @@ app = Flask(__name__)
 redis = redis.StrictRedis()
 
 @app.route("/<int:key>/")
-def redirect(key):
+def redir(key):
     if not redis.get(key):
         abort(404)
     else:
