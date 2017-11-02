@@ -1,6 +1,5 @@
 from flask import Flask, request, redirect, abort
-from lepl.apps.rfc3696 import HttpUrl
-import redis, zlib
+import redis, zlib, validators
 
 app = Flask(__name__)
 redis = redis.StrictRedis()
@@ -15,14 +14,12 @@ def redir(key):
 @app.route("/shorten/", methods=['POST'])
 def shorten():
     url = request.form['url']
-    validator = HttpUrl()
-    if validator(url):
+    if validators.url(url):
         key = zlib.crc32(url)
         redis.set(key, url)
         return str(key)
     else:
-        return ''
+        return 'Bad URL'
 
 if __name__ == "__main__":
     app.run(debug=True)
-
