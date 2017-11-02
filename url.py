@@ -15,7 +15,7 @@ def redir(key):
 def shorten():
     url = request.form['url']
     if validators.url(url):
-        key = zlib.crc32(url)
+        key = zlib.crc32(url) + (2**32) ## cast to unsigned int
         redis.set(key, url)
         return str(key)
     else:
