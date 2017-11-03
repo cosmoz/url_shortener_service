@@ -1,12 +1,12 @@
 from flask import Flask, request, redirect, abort
-import redis, zlib, validators
+import redis, zlib, validators, os, socket
 
 app = Flask(__name__)
 redis = redis.StrictRedis()
 
 @app.route("/")
 def main():
-    return 'Hi there!'
+    return 'Hi there! ' + socket.gethostname() 
 
 @app.route("/<int:key>/")
 def redir(key):
