@@ -4,6 +4,10 @@ import redis, zlib, validators
 app = Flask(__name__)
 redis = redis.StrictRedis()
 
+@app.route("/")
+def main():
+    return 'Hi there!'
+
 @app.route("/<int:key>/")
 def redir(key):
     if not redis.get(key):
@@ -22,4 +26,4 @@ def shorten():
         return 'Bad URL'
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
