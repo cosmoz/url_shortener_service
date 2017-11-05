@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect, abort
+from flask import Flask, request, redirect, abort, render_template
 import redis, zlib, validators, os, socket
 
 app = Flask(__name__)
@@ -6,7 +6,11 @@ redis = redis.StrictRedis()
 
 @app.route("/")
 def main():
-    return 'Hi there! ' + socket.gethostname() 
+    return render_template('index.html')
+
+@app.route("/host")
+def hostname():
+    return socket.gethostname() 
 
 @app.route("/<int:key>/")
 def redir(key):

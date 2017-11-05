@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Vue sample front</title>
+		<script src="https://unpkg.com/vue"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
+	</head>
+	<body>
+
+		<div id="shortcut">
+		  <p>{{ message }}</p>
+		  <button v-on:click="ujeb">Utnij!</button>
+		</div>
+
+		<script>
+			var shortcut = new Vue({
+			  el: '#shortcut',
+
+			  data: {
+			  	url: 'http://www.pudelek.pl/'
+			  },
+
+			  methods: {
+			  	ujeb: function(e) {
+			  		e.preventDefault();
+
+			  		var req =   this.$http.get('http://localhost:5000/host').then(response => {
+						    console.log(response)
+						  }, response => {
+						    console.log('damn')
+						  });
+			  	}
+			  }
+			})
+		</script>
+	</body>
+</html>
