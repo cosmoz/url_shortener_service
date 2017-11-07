@@ -1,7 +1,9 @@
 from flask import Flask, request, redirect, abort, render_template
+from flask_cors import CORS
 import redis, zlib, validators, os, socket
 
 app = Flask(__name__)
+CORS(app)
 redis = redis.StrictRedis()
 
 @app.route("/")
