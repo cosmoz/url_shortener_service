@@ -23,17 +23,3 @@ Currently I have lot of time (OK, rising my son gives me *some* time on the even
 
 I will try to push every single day of November to reach nice Github streak. Hopefully it will give me green and nice looking profile. At the end of month I hope it will transform into nice pet project with lots of architectural concepts and integration patterns.
 
-#### Def of done
-
-- Backend Python µService for storing the shortcuts
-- Docker images
-- nginx as reverse proxy on front for load balacing, high availability and performance
-- Frontend written in vue.js or react (no UX, sorry)
-- GoLang router µService for resolving the shortcuts
-- CI with drone.io or TravisCI
-- Kubernetes config
-- run on AWS and/or DigitalOcean
-- Kafka for stream processing and some fun stuff
-- Kibana for visualization and stats 
-- ML with TensorFlow for fun
-
