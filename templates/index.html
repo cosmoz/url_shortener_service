@@ -4,11 +4,17 @@
 		<title>Vue sample front</title>
 		<script src="https://unpkg.com/vue"></script>
 		<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
+		<style type="text/css">
+			#shortcut { text-align: center; }
+			#logo { font-size: 72pt; margin: 50px; }
+			#long_url { font-size: 16pt; }
+		</style>
 	</head>
 	<body>
 
 		<div id="shortcut">
-			<input id="long_url" style="width: 65%;">
+			<div id="logo">✂</div>
+			<input id="long_url" style="width: 50%;" autofocus>
 		  <p>{{ message }}</p>
 		  <button v-on:click="host">Host!</button>
 		  <button v-on:click="shorten">Skróć!</button>
