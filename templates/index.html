@@ -32,13 +32,13 @@
 			  	shorten: function(e) {
 			  		var formData = new FormData();
 			  		formData.append('url', document.getElementById('long_url').value);
-			  		var req =   this.$http.post('http://localhost:5000/shorten/', formData).then(
+			  		var req =   this.$http.post('/shorten/', formData).then(
 			  			response => { this.message = response.body; },
 			  			response => { console.log('damn') }
 			  		);		  	
 			  	},
 			  	host: function(e) {
-			  		var req =   this.$http.get('http://localhost:5000/host').then(
+			  		var req =   this.$http.get('/host/').then(
 			  			response => { this.message = response.body; },
 			  			response => { console.log('damn') }
 			  		);

@@ -23,7 +23,7 @@ redis = redis.StrictRedis()
 def main():
 	return render_template('index.html')
 
-@app.route("/host")
+@app.route("/host/")
 def hostname():
 	return socket.gethostname() 
 
