@@ -15,6 +15,7 @@ class CustomFlask(Flask):
   ))
 
 app = Flask(__name__)
+app.config.from_object('config.DevelopmentConfig')
 app = CustomFlask(__name__)
 CORS(app)
 redis = redis.StrictRedis()
@@ -45,4 +46,4 @@ def shorten():
 		return 'Bad URL'
 
 if __name__ == "__main__":
-	app.run(host='0.0.0.0', port=5000, debug=True)
+	app.run(host='0.0.0.0', port=5000)
