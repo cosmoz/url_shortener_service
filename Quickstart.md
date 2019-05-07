@@ -13,7 +13,7 @@ virtualenv ENV
 # activate venv
 source ENV/bin/activate
 # install requrements (flask, redis client)
-pip install -e requirements.txt
+pip install -r requirements.txt
 # run the service
 python url.py
 
