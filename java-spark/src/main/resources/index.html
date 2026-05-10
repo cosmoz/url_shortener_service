@@ -1,0 +1,6 @@
+<!DOCTYPE html><html>
+<head><title>Short</title></head>
+<body style='text-align:center;margin-top:20vh'>
+<input id='u' autofocus>
+<button onclick="fetch('/shorten/',{method:'POST',body:new URLSearchParams({url:document.getElementById('u').value})}).then(r=>r.text()).then(k=>alert(k))">Shorten!</button>
+</body></html>
