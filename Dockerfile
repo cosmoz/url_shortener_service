@@ -1,7 +1,11 @@
-FROM python:2.7-slim
+FROM python:3.14-alpine AS base
 WORKDIR /app
-ADD . /app
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir --upgrade pip && \
+    apk upgrade --no-cache
+
+FROM base
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
 EXPOSE 5000
-ENV NAME World
 CMD ["python", "url.py"]

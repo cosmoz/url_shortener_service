@@ -19,7 +19,20 @@ Everything in JVM world is much more expressive than in 1995 and staying readabl
 
 Currently I have lot of time (OK, rising my son gives me *some* time on the evening) and I want to check how rusty my fingers are after doing mostly management, technical leadership and architecture in last 4+ years. There was no time for something more than quick PoC between meetings. My implementation may suck so feel free to correct me. 
 
-#### Future
+#### Run
 
-I will try to push every single day of November to reach nice Github streak. Hopefully it will give me green and nice looking profile. At the end of month I hope it will transform into nice pet project with lots of architectural concepts and integration patterns.
+```bash
+docker compose up -d --build
+```
+
+Usługa dostępna pod `http://localhost:8080/`.
+
+#### Run locally
+
+```bash
+pip install -r requirements.txt
+python url.py
+```
+
+Wymaga działającego Redis na localhost:6379. Ustaw zmienną `REDIS_HOST` aby połączyć się z innym instancją.
 
